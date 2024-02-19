@@ -27,17 +27,13 @@ function start() {
             origin: "*"
         }
     });
+    //FOR TESTING PURPOSES
     // setInterval(() => { 
     //   io.emit("bevo-data", `4;21;bevo HC;${Math.floor(Math.random() * 40)}`);
     // }, 2000);
     console.log(`${viewAllIp}:${viewAllPort} `);
-    // client.connect(viewAllPort, viewAllIp, () => {
-    //   console.log("connected");
-    // });
     client.bind(viewAllPort);
     client.on('message', (msg, info) => {
-        // console.log(msg.toString());
-        // console.log("hi");
         io.emit("bevo-data", msg.toString());
     });
     server.listen(port, () => {

@@ -25,17 +25,13 @@ function start() {
       origin: "*"
     }
   });
+  //FOR TESTING PURPOSES
   // setInterval(() => { 
   //   io.emit("bevo-data", `4;21;bevo HC;${Math.floor(Math.random() * 40)}`);
   // }, 2000);
   console.log(`${viewAllIp}:${viewAllPort} `);
-  // client.connect(viewAllPort, viewAllIp, () => {
-  //   console.log("connected");
-  // });
   client.bind(viewAllPort);
   client.on('message', (msg: Buffer, info: RemoteInfo) => {
-    // console.log(msg.toString());
-    // console.log("hi");
     io.emit("bevo-data", msg.toString());
   });
   server.listen(port, () => {
@@ -49,6 +45,5 @@ app.get('/', (req: Request, res: Response) => {
 app.get("/overlay", (req: Request, res: Response) => {
   res.sendFile(path.join(__dirname + '/html/overlay.html'));
 })
-
 
 start();
