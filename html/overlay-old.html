@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            font-family: Verdana, sans-serif;
+            /* background: url(images/bkg.jpeg) no-repeat center center fixed; */
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            font-size: 20px;
+        }
+
+        .page-wrapper {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+        }
+
+
+        /* .left-team {
+            left: 50px;
+            background-color: #FFDD00;
+        }
+
+        .right-team {
+            right: 50px;
+            background-color: #0053A1;
+            color: white;
+        } */
+
+        .team-wrapper {
+            display: flex;
+        }
+
+        .team {
+            /* top: 50px;
+            height: 35px;
+            max-width: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 20px;
+            padding: 0px 8px; */
+            /* height: 40px; */
+            position: absolute;
+            font-size: 28px;
+            top: 62.5px;
+            /* box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; */
+            /* box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px; */
+            /* box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset; */
+
+        }
+
+        #name-left {
+            padding-left: 25px;
+            background-image: -webkit-linear-gradient(15deg, rgba(255, 255, 255, 0) 11px, rgba(0, 0, 0, 0.56) 10px);
+        }
+
+        #name-right {
+            padding-right: 25px;
+            background-image: -webkit-linear-gradient(15deg, rgba(0, 0, 0, 0.56) calc(100% - 11px), rgba(255, 255, 255, 0) calc(100% - 10px));
+
+        }
+
+        .name-wrapper {
+            /* background-color: rgba(0, 0, 0, 0.13); */
+            color: rgb(237, 237, 237);
+            padding: 12px 28px;
+            /* background: rgb(0, 0, 0); */
+            /* background: linear-gradient(0deg, rgba(0, 0, 0, 0.8375175753895308) 0%, rgba(0, 0, 0, 0.3221114129245448) 50%, rgba(0, 0, 0, 0.8375175753895308) 100%); */
+            /* box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px; */
+        }
+
+        .overlay-wrapper {
+            position: absolute;
+            left: 50vw;
+            transform: translateX(-50vw);
+            width: 100vw;
+            height: fit-content;
+            /* text-align: center; */
+            /* flex-direction: column; */
+            /* display: flex; */
+            /* align-items: center; */
+            /* justify-content: center; */
+        }
+
+        .score-wrapper {
+            border-radius: 2px;
+            /* box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; */
+            /* box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; */
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+            position: absolute;
+            top: 50px;
+            left: 50vw;
+            transform: translateX(-50%);
+            display: flex;
+            height: 85px;
+            align-items: center;
+            background-color: #0053A1;
+            background-image: -webkit-linear-gradient(15deg, #0053A1 50%, #FFDD00 calc(50% + 1px));
+        }
+
+        .score {
+            font-size: 38px;
+            font-weight: 500;
+            padding: 12px 20px;
+            min-width: 42px;
+            text-align: center;
+        }
+
+        #score-left {
+            /* color */
+            /* font */
+            padding-right: 36px;
+        }
+        #score-right {
+            /* color */
+            /* font */
+            padding-left: 16px;
+        }
+
+
+        #team-left {
+            /* color: white; */
+            /* border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px; */
+
+            /* background-color: #0053A1; */
+            background-image: -webkit-linear-gradient(15deg, rgba(255, 255, 255, 0) 12px, #0053A1 11px);
+            padding: 2px 0px 2px 3px;
+            right: calc(50vw + 80px);
+        }
+
+        #team-right {
+            /* background-color: #FFDD00; */
+            background-image: -webkit-linear-gradient(15deg, #FFDD00 calc(100% - 11px), rgba(255, 255, 255, 0) calc(100% - 12px));
+            padding: 2px 3px 2px 0px;
+            left: calc(50vw + 80px);
+        }
+
+        .time {
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            font-size: 18px;
+            padding: 8px 14px;
+            width: fit-content;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 135px;
+            left: 50vw;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <div class="overlay-wrapper">
+            <div class="team-wrapper">
+                <div id="team-left" class="team">
+                    <div id="name-left" class="name-wrapper">
+                        thuis
+                    </div>
+                </div>
+                <div id="team-right" class="team">
+                    <div id="name-right" class="name-wrapper">
+                        uit
+                    </div>
+                </div>
+            </div>
+            <div class="score-wrapper">
+                <div id="score-left" class="score">0</div>
+                <div id="score-right" class="score">0</div>
+            </div>
+            <div id="time" class="time">00:00</div>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
+        socket.on("bevo-data", (msg) => {
+            console.log(msg);
+
+            var data = msg.substring(1,msg.length-1);
+            var dataArray = data.split(';');
+            if (dataArray.length > 7) {
+                document.getElementById("name-left").innerHTML = dataArray[3];
+                document.getElementById("name-right").innerHTML = dataArray[4];
+                document.getElementById("score-left").innerHTML = dataArray[5];
+                document.getElementById("score-right").innerHTML = dataArray[6];
+                document.getElementById("time").innerHTML = dataArray[9];
+                //V verlenging
+                //P periode
+                //-1 rust
+                //-2
+            }
+
+
+        });
+    </script>
+</body>
+
+</html>
